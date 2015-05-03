@@ -84,6 +84,37 @@ public class Interface_Grafica extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	
+	public void mudarTexto(int i,String s){
+		
+		switch (i){
+		case 0: textField.setText(s);
+		case 1: textField_1.setText(s);
+		case 2: textField_2.setText(s);
+		case 3: textField_3.setText(s);
+		case 4: textField_4.setText(s);
+		case 5: textField_5.setText(s);
+		case 6: textField_6.setText(s);
+		case 7: textField_7.setText(s);
+		case 8: textField_8.setText(s);
+		case 9: textField_9.setText(s);
+		case 10: textField_10.setText(s);
+		case 11: textField_11.setText(s);
+		case 12: textField_12.setText(s);
+		case 13: textField_13.setText(s);
+		case 14: textField_14.setText(s);
+		case 15: textField_15.setText(s);
+		case 16: textField_16.setText(s);
+		case 17: textField_17.setText(s);
+		case 18: textField_18.setText(s);
+		case 19: textField_19.setText(s);
+		case 20: textField_20.setText(s);
+		
+		}
+		
+		
+	}//fim mudar texto
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -97,22 +128,7 @@ public class Interface_Grafica extends JFrame {
 		});
 	}
 
-    public static String removeCaracteresFromString(String str, String charsRemove, String delimiter) {
-        
-        if (charsRemove!=null && charsRemove.length()>0 && str!=null) {
-         
-        String[] remover = charsRemove.split(delimiter);
-         
-        for(int i =0; i < remover.length ; i++) {
-            //System.out.println("i: " + i + " ["+ remover[i]+"]");
-            if (str.indexOf(remover[i]) != -1){
-                str = str.replace(remover[i], "");
-            }
-        }
-    }
-     
-    return str;
-}	
+	
 	/**
 	 * Create the frame.
 	 */
@@ -135,28 +151,11 @@ public class Interface_Grafica extends JFrame {
 		MnuNovo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				textField.setText("");	
-				textField_1.setText("");
-				textField_2.setText("");
-				textField_3.setText("");
-				textField_4.setText("");
-				textField_5.setText("");
-				textField_6.setText("");
-				textField_7.setText("");
-				textField_8.setText("");
-				textField_9.setText("");
-				textField_10.setText("");
-				textField_11.setText("");
-				textField_12.setText("");
-				textField_13.setText("");
-				textField_14.setText("");
-				textField_15.setText("");
-				textField_16.setText("");
-				textField_17.setText("");
-				textField_18.setText("");
-				textField_19.setText("");
-				textField_20.setText("");
+				
+				for(int i=0;i<21;i++) mudarTexto(i,""); //Apaga todos os campos
+			
 			}
+			
 		});
 		MnuArquivos.add(MnuNovo);
 		
@@ -300,6 +299,7 @@ public class Interface_Grafica extends JFrame {
 		        int resultado = fileChooser.showOpenDialog(fileChooser);// Chama a caixa de dialogo
 		        if (resultado == JFileChooser.APPROVE_OPTION) {
 		        	File Arquivo = fileChooser.getSelectedFile(); //Seleciona o arquivo
+		        	
 		        	//System.out.println("O arquivo selecionado: " + resultado); // Imprime no console
 		        	try {
 		        	FileReader arq = new FileReader(Arquivo); 
@@ -405,9 +405,16 @@ public class Interface_Grafica extends JFrame {
 				fileChooser.setDialogTitle("Exportando Programa para P5000 no Pendrive");
 				FileNameExtensionFilter filter = new FileNameExtensionFilter("Arquivo de Exportação", "tml");
 				fileChooser.setFileFilter(filter);
-				fileChooser.setName(textField_1.getText());
+				
 		
 				fileChooser.setCurrentDirectory(new File("User.home" ));
+				
+				//fileChooser.setApproveButtonText("Exportar");//mudar o nome do botao salvar/abrir -nao funfa ainda
+				//fileChooser.setApproveButtonMnemonic('e');//mudar a letra de atalho - nao funfa ainda, tem que investigar
+								
+				fileChooser.setApproveButtonToolTipText("Exportar Arquivo Selecionado");
+				fileChooser.setSelectedFile ( new  File ( textField_1.getText() + ".tml" )); 
+				
 				int userSelection = fileChooser.showSaveDialog(fileChooser);
 				if (userSelection == JFileChooser.APPROVE_OPTION) {
 				    File fileToSave = fileChooser.getSelectedFile();
