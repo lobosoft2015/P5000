@@ -1247,7 +1247,7 @@ public class Interface_Grafica extends JFrame {
 		lblMcl.setBounds(282, 348, 29, 14);
 		getContentPane().add(lblMcl);
 		
-		JLabel lblProgramadorRenatoLbo = new JLabel("Programador: Renato L\u00F4bo Rodrigues");
+		JLabel lblProgramadorRenatoLbo = new JLabel("Programador: Renato L\u00F4bo e Renato L.R.Jr.");
 		lblProgramadorRenatoLbo.setForeground(Color.BLUE);
 		lblProgramadorRenatoLbo.setHorizontalAlignment(SwingConstants.LEFT);
 		lblProgramadorRenatoLbo.setFont(new Font("Tahoma", Font.PLAIN, 12));
